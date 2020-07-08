@@ -21,10 +21,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  void playSound({String soundFileName}){
-    print('Play $soundFileName');
+  void playSound({int soundNumber}){
     final player = AudioCache();
-    player.play(soundFileName);
+    player.play('note$soundNumber.wav');
   }
 
   Widget key({Color color, int soundNumber}){
@@ -32,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: FlatButton(
         color: color,
         onPressed: (){
-          playSound(soundFileName: 'note$soundNumber.wav');
+          playSound(soundNumber: soundNumber);
         },
       ),
     );
